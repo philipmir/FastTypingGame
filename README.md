@@ -1,1 +1,1 @@
-# FastTypingGame
+# SpeedTypingGame
