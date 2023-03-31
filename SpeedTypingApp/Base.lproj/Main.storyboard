@@ -1,24 +1,260 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SpeedTypingApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oix-SC-7Fm">
+                                <rect key="frame" x="81" y="478" width="230" height="220"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="220" id="zon-fu-OYQ"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="START THE GAME"/>
+                                <connections>
+                                    <action selector="pressButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u6z-U8-kBM"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edc-Wq-JmX">
+                                <rect key="frame" x="76" y="117" width="240" height="133"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="133" id="rwg-tJ-V02"/>
+                                </constraints>
+                                <string key="text">How to play SpeedTypingApp:                                   First you need to press the big button under this text. When the game starts you type the word that appears in window and press Enter. You have 30 seconds to type fast for points.</string>
+                                <color key="textColor" systemColor="systemBlueColor"/>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="edc-Wq-JmX" firstAttribute="centerX" secondItem="Oix-SC-7Fm" secondAttribute="centerX" id="2Rg-ZY-lNe"/>
+                            <constraint firstItem="edc-Wq-JmX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="76" id="4k8-QZ-bfC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Oix-SC-7Fm" secondAttribute="bottom" constant="120" id="AZW-yr-slB"/>
+                            <constraint firstItem="Oix-SC-7Fm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="81" id="OpG-zN-7Cx"/>
+                            <constraint firstItem="edc-Wq-JmX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="58" id="byG-3e-7Do"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Oix-SC-7Fm" secondAttribute="trailing" constant="82" id="h7g-An-fFj"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <segue destination="RUk-ER-7Ez" kind="show" identifier="segueToGame" id="b6D-oG-ALg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="35.877862595419849" y="-27.464788732394368"/>
+        </scene>
+        <!--Game View Controller-->
+        <scene sceneID="25K-40-9y9">
+            <objects>
+                <viewController id="RUk-ER-7Ez" customClass="GameViewController" customModule="SpeedTypingApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="21V-cy-u05">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word To Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muG-g1-9ic">
+                                <rect key="frame" x="116" y="339" width="170" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="eWu-5y-ngX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemBlueColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cK1-20-tQZ">
+                                <rect key="frame" x="114" y="368" width="170" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="bUd-i9-xXf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="primartActionTriggered:" destination="RUk-ER-7Ez" eventType="primaryActionTriggered" id="hd7-7f-pBl"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eje-ug-dh6">
+                                <rect key="frame" x="116" y="153" width="170" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="NNR-T3-2bZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemMintColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n7p-MV-FOp">
+                                <rect key="frame" x="157" y="310" width="89" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsS-3P-nmR">
+                                <rect key="frame" x="131" y="524.33333333333337" width="136" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="CHECK WORD"/>
+                                <connections>
+                                    <action selector="checkWordButton:" destination="RUk-ER-7Ez" eventType="touchUpInside" id="FdO-G1-UDA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press Enter to Check" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfb-j4-pFy">
+                                <rect key="frame" x="119" y="416" width="160" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oiV-el-obB">
+                                <rect key="frame" x="119" y="59" width="165" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NrT-1x-WW9">
+                                <rect key="frame" x="119" y="116" width="165" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="JeN-3x-UMX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Word Timer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6K-QJ-pGH">
+                                <rect key="frame" x="119" y="281" width="165" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wXO-N8-jAx">
+                                <rect key="frame" x="121" y="88" width="160" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemPinkColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AMv-03-eEj"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="wXO-N8-jAx" firstAttribute="leading" secondItem="AMv-03-eEj" secondAttribute="leading" constant="121" id="2Du-U4-4Wj"/>
+                            <constraint firstItem="cK1-20-tQZ" firstAttribute="leading" secondItem="AMv-03-eEj" secondAttribute="leading" constant="114" id="3uB-vh-Uoo"/>
+                            <constraint firstItem="NrT-1x-WW9" firstAttribute="top" secondItem="wXO-N8-jAx" secondAttribute="bottom" constant="7" id="4tG-vU-IUy"/>
+                            <constraint firstItem="nsS-3P-nmR" firstAttribute="top" secondItem="Qfb-j4-pFy" secondAttribute="bottom" constant="88" id="6ZD-oG-Myf"/>
+                            <constraint firstItem="Eje-ug-dh6" firstAttribute="top" secondItem="AMv-03-eEj" secondAttribute="top" constant="94" id="Acp-7p-6DP"/>
+                            <constraint firstItem="wXO-N8-jAx" firstAttribute="top" secondItem="oiV-el-obB" secondAttribute="bottom" constant="8" id="BOc-Sv-t9O"/>
+                            <constraint firstItem="muG-g1-9ic" firstAttribute="top" secondItem="AMv-03-eEj" secondAttribute="top" constant="280" id="Fof-ha-EXP"/>
+                            <constraint firstItem="NrT-1x-WW9" firstAttribute="trailing" secondItem="Eje-ug-dh6" secondAttribute="trailing" constant="-2" id="GPT-mJ-Gbi"/>
+                            <constraint firstItem="Qfb-j4-pFy" firstAttribute="top" secondItem="cK1-20-tQZ" secondAttribute="bottom" constant="14" id="H5P-gh-T6x"/>
+                            <constraint firstItem="Eje-ug-dh6" firstAttribute="centerX" secondItem="21V-cy-u05" secondAttribute="centerX" constant="4.5" id="MtP-cN-ZpT"/>
+                            <constraint firstItem="Qfb-j4-pFy" firstAttribute="leading" secondItem="AMv-03-eEj" secondAttribute="leading" constant="119" id="NNn-bn-hRz"/>
+                            <constraint firstItem="oiV-el-obB" firstAttribute="top" secondItem="AMv-03-eEj" secondAttribute="top" id="P7T-o9-4Ga"/>
+                            <constraint firstItem="n7p-MV-FOp" firstAttribute="centerX" secondItem="muG-g1-9ic" secondAttribute="centerX" constant="0.5" id="Qil-km-Ief"/>
+                            <constraint firstItem="AMv-03-eEj" firstAttribute="bottom" secondItem="cK1-20-tQZ" secondAttribute="bottom" constant="381" id="SKn-7H-NwX"/>
+                            <constraint firstItem="AMv-03-eEj" firstAttribute="trailing" secondItem="oiV-el-obB" secondAttribute="trailing" constant="109" id="TFq-PD-4nd"/>
+                            <constraint firstItem="AMv-03-eEj" firstAttribute="trailing" secondItem="muG-g1-9ic" secondAttribute="trailing" constant="107" id="UA6-ww-hUn"/>
+                            <constraint firstItem="NrT-1x-WW9" firstAttribute="leading" secondItem="wXO-N8-jAx" secondAttribute="leading" constant="-2" id="W3a-LE-2AU"/>
+                            <constraint firstItem="Eje-ug-dh6" firstAttribute="leading" secondItem="AMv-03-eEj" secondAttribute="leading" constant="116" id="ZSJ-iL-TuC"/>
+                            <constraint firstItem="nsS-3P-nmR" firstAttribute="centerX" secondItem="Qfb-j4-pFy" secondAttribute="centerX" id="daE-EZ-9bI"/>
+                            <constraint firstItem="NrT-1x-WW9" firstAttribute="leading" secondItem="oiV-el-obB" secondAttribute="leading" id="dq2-Lg-IyQ"/>
+                            <constraint firstItem="oiV-el-obB" firstAttribute="top" secondItem="AMv-03-eEj" secondAttribute="top" id="gJ1-bs-RXV"/>
+                            <constraint firstItem="n7p-MV-FOp" firstAttribute="top" secondItem="Eje-ug-dh6" secondAttribute="bottom" constant="127" id="h4M-Uu-6TJ"/>
+                            <constraint firstItem="wXO-N8-jAx" firstAttribute="centerX" secondItem="muG-g1-9ic" secondAttribute="centerX" id="hJr-SZ-qnl"/>
+                            <constraint firstItem="n7p-MV-FOp" firstAttribute="leading" secondItem="AMv-03-eEj" secondAttribute="leading" constant="157" id="j9m-sg-XVz"/>
+                            <constraint firstItem="muG-g1-9ic" firstAttribute="leading" secondItem="AMv-03-eEj" secondAttribute="leading" constant="116" id="kpo-dQ-v86"/>
+                            <constraint firstItem="A6K-QJ-pGH" firstAttribute="leading" secondItem="Qfb-j4-pFy" secondAttribute="leading" id="mgH-2z-a7w"/>
+                            <constraint firstItem="A6K-QJ-pGH" firstAttribute="trailing" secondItem="muG-g1-9ic" secondAttribute="trailing" constant="-2" id="rSj-Ii-bf1"/>
+                            <constraint firstItem="n7p-MV-FOp" firstAttribute="top" secondItem="A6K-QJ-pGH" secondAttribute="bottom" constant="8" id="uoB-Zw-acb"/>
+                            <constraint firstItem="AMv-03-eEj" firstAttribute="trailing" secondItem="cK1-20-tQZ" secondAttribute="trailing" constant="109" id="wdv-Ni-nIn"/>
+                            <constraint firstItem="wXO-N8-jAx" firstAttribute="centerX" secondItem="Qfb-j4-pFy" secondAttribute="centerX" constant="2" id="zsr-yv-u6w"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="0gZ-QS-zbm"/>
+                    <connections>
+                        <outlet property="gameTimerLabel" destination="wXO-N8-jAx" id="HEj-y7-EnU"/>
+                        <outlet property="randomWordLable" destination="muG-g1-9ic" id="L9L-uX-uWn"/>
+                        <outlet property="scoreBoard" destination="Eje-ug-dh6" id="LfE-SG-oUW"/>
+                        <outlet property="timeLable" destination="n7p-MV-FOp" id="owY-bX-ZYE"/>
+                        <outlet property="typingTextField" destination="cK1-20-tQZ" id="PlK-vv-ZnF"/>
+                        <segue destination="1h9-oJ-RYW" kind="show" identifier="SegueToGameOver" id="AgX-MD-Fza"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xna-Kw-LJX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="988.54961832061065" y="-203.52112676056339"/>
+        </scene>
+        <!--Game Over View Controller-->
+        <scene sceneID="HHr-ev-8dh">
+            <objects>
+                <viewController id="1h9-oJ-RYW" customClass="GameOverViewController" customModule="SpeedTypingApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wAZ-wI-6If">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ls3-EW-jBA">
+                                <rect key="frame" x="132" y="545" width="128" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="tinted" title="PLAY AGAIN"/>
+                                <connections>
+                                    <action selector="playAgainButton:" destination="1h9-oJ-RYW" eventType="touchUpInside" id="9Fa-jh-HcI"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pux-Jb-4vk">
+                                <rect key="frame" x="83" y="169" width="226" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="OWH-6M-4n3"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="OWH-6M-4n3" firstAttribute="trailing" secondItem="Pux-Jb-4vk" secondAttribute="trailing" constant="84" id="Vfp-76-w4v"/>
+                            <constraint firstItem="Pux-Jb-4vk" firstAttribute="top" secondItem="OWH-6M-4n3" secondAttribute="top" constant="110" id="YyI-vA-RYV"/>
+                            <constraint firstItem="Pux-Jb-4vk" firstAttribute="leading" secondItem="OWH-6M-4n3" secondAttribute="leading" constant="83" id="bHB-kB-nvw"/>
+                            <constraint firstItem="OWH-6M-4n3" firstAttribute="bottom" secondItem="Ls3-EW-jBA" secondAttribute="bottom" constant="203" id="gxX-ek-8oH"/>
+                            <constraint firstItem="Ls3-EW-jBA" firstAttribute="centerX" secondItem="Pux-Jb-4vk" secondAttribute="centerX" id="hCk-Uo-4o5"/>
+                            <constraint firstItem="Ls3-EW-jBA" firstAttribute="leading" secondItem="OWH-6M-4n3" secondAttribute="leading" constant="132" id="zbB-Rs-kB4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="sdc-Zx-nF3"/>
+                    <connections>
+                        <outlet property="endPoints" destination="Pux-Jb-4vk" id="wAm-B2-6mz"/>
+                        <segue destination="RUk-ER-7Ez" kind="show" identifier="restartGameSegue" id="Hdq-Ft-EPe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W8U-kt-qGT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1756.4885496183206" y="-203.52112676056339"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="b6D-oG-ALg"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

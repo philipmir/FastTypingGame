@@ -8,6 +8,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let segueToGame = "segueToGame"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,5 +17,13 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func pressButtonAction(_ sender: UIButton) {
+        performSegue(withIdentifier: segueToGame, sender: self)
+        
+    }
+    
+    
+    
 }
+
 
